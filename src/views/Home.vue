@@ -1,15 +1,112 @@
 <template>
   <div class="page-wrapper">
-    <h1 class="home-page-title">{{ appTitle }}</h1>
-    <img alt="logo-bento" class="logo" src="@/assets/img/bento-starter.svg" />
+    <div class="top-content">
+      <div class="left-content">
+        <h1>
+          10,000+ of our users love our products.
+        </h1>
+        <p>
+          We only provide great products combined with excellent customer
+          service. See what our satisfied customers are saying about our
+          services.
+        </p>
+      </div>
 
-    <a
-      rel="noopener"
-      class="documentation-link"
-      target="_blank"
-      href="https://bento-starter.netlify.com/"
-      >Documentation →</a
-    >
+      <div class="right-content">
+        <div class="rating-content">
+          <div class="rating-stars">
+            <span class="rating-star"></span>
+            <span class="rating-star"></span>
+            <span class="rating-star"></span>
+            <span class="rating-star"></span>
+            <span class="rating-star"></span>
+          </div>
+
+          <p>
+            Rated 5 Stars in Reviews
+          </p>
+        </div>
+
+        <div class="rating-content">
+          <div class="rating-stars">
+            <span class="rating-star"></span>
+            <span class="rating-star"></span>
+            <span class="rating-star"></span>
+            <span class="rating-star"></span>
+            <span class="rating-star"></span>
+          </div>
+
+          <p>
+            Rated 5 Stars in Report Guru
+          </p>
+        </div>
+
+        <div class="rating-content">
+          <div class="rating-stars">
+            <span class="rating-star"></span>
+            <span class="rating-star"></span>
+            <span class="rating-star"></span>
+            <span class="rating-star"></span>
+            <span class="rating-star"></span>
+          </div>
+
+          <p>
+            Rated 5 Stars in BestTech
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-content">
+      <div class="quote-card">
+        <div class="quote-author">
+          <img src="@/assets/img/image-colton.jpg" alt="Colton Smith" />
+
+          <div class="author-content">
+            <p class="author-name">Colton Smith</p>
+            <p class="author-status">Verified Buyer</p>
+          </div>
+        </div>
+
+        <p class="quote-content">
+          "We needed the same printed design as the one we had ordered a week
+          prior. Not only did they find the original order, but we also received
+          it in time. Excellent!"
+        </p>
+      </div>
+      <div class="quote-card">
+        <div class="quote-author">
+          <img src="@/assets/img/image-irene.jpg" alt="Irene Roberts" />
+
+          <div class="author-content">
+            <p class="author-name">Irene Roberts</p>
+            <p class="author-status">Verified Buyer</p>
+          </div>
+        </div>
+
+        <p class="quote-content">
+          "Customer service is always excellent and very quick turn around.
+          Completely delighted with the simplicity of the purchase and the speed
+          of delivery."
+        </p>
+      </div>
+      <div class="quote-card">
+        <div class="quote-author">
+          <img src="@/assets/img/image-anne.jpg" alt="Anne Wallace" />
+
+          <div class="author-content">
+            <p class="author-name">Anne Wallace</p>
+            <p class="author-status">Verified Buyer</p>
+          </div>
+        </div>
+
+        <p class="quote-content">
+          "Put an order with this company and can only praise them for the very
+          high standard. Will definitely use them again and recommend them to
+          everyone!"
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -43,27 +140,220 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 127px 80px 100px;
 
-  .logo {
-    margin-bottom: 3rem;
+  @media (max-width: 768px) {
+    padding: 80px 24px;
   }
 
-  .home-page-title {
-    text-align: center;
+  .top-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 72px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+      margin-bottom: 49px;
+    }
+
+    .left-content {
+      max-width: 35%;
+
+      @media (max-width: 768px) {
+        max-width: 100%;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 48px;
+        letter-spacing: -1.71429px;
+        color: $primaryColor1;
+
+        @media (max-width: 768px) {
+          font-size: 32px;
+          line-height: 32px;
+          text-align: center;
+          letter-spacing: -1.14286px;
+        }
+      }
+
+      p {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 25px;
+        letter-spacing: -0.5px;
+        color: $neutralColor1;
+      }
+    }
+
+    .right-content {
+      width: 100%;
+      margin-left: 15%;
+      flex-direction: column;
+
+      @media (max-width: 768px) {
+        align-items: center;
+        justify-content: center;
+        margin: 40px auto 0;
+      }
+
+      .rating-content {
+        display: flex;
+        max-width: 445px;
+        margin: 0;
+        padding: 20px 32px 15px;
+        background: $neutralColor2;
+        border-radius: 8px;
+        text-align: center;
+
+        @media (min-width: 769px) {
+          &:nth-child(2) {
+            margin-left: 48px;
+          }
+
+          &:last-child {
+            margin-left: 96px;
+          }
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 16px;
+        }
+
+        @media (max-width: 1024px) {
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          &:nth-child(2),
+          &:last-child {
+            margin-left: 0;
+          }
+        }
+
+        @media (max-width: 768px) {
+          max-width: 100%;
+          margin: auto;
+
+          &:nth-child(2),
+          &:last-child {
+            margin-left: auto;
+            margin-right: auto;
+          }
+        }
+
+        p {
+          font-style: normal;
+          font-weight: bold;
+          font-size: 13px;
+          line-height: 20px;
+          color: $primaryColor1;
+          margin-left: 32px;
+
+
+          @media (max-width: 1024px) {
+            margin-left: 0;
+          }
+        }
+
+        .rating-stars {
+          display: flex;
+
+          @media (max-width: 1024px) {
+            margin-bottom: 16px;
+          }
+
+          span {
+            width: 17px;
+            height: 16px;
+            display: inline-block;
+            margin-right: 9px;
+            background: url('../assets/img/icon-star.svg') center no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+    }
   }
 
-  .documentation-link {
-    display: inline-block;
-    font-size: 1.2rem;
-    color: #fff;
-    background-color: #5d6788;
-    padding: 0.8rem 1.6rem;
-    border-radius: 4px;
-    transition: background-color 0.1s ease;
-    box-sizing: border-box;
-    text-decoration: none;
-    width: fit-content;
-    font-weight: 500;
+  .bottom-content {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    .quote-card {
+      position: relative;
+      padding: 40px 32px;
+      background: $primaryColor1;
+      border-radius: 8px;
+
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+
+      @media (min-width: 769px) {
+        &:nth-child(2) {
+          top: 16px;
+        }
+
+        &:last-child {
+          top: 32px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        &:not(:last-child) {
+          margin-right: 0;
+          margin-bottom: 16px;
+        }
+      }
+    }
+
+    .quote-author {
+      display: flex;
+      margin-bottom: 26px;
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 23px;
+      }
+
+      .author-name,
+      .author-status {
+        font-size: 13px;
+        line-height: 15px;
+      }
+
+      .author-name {
+        font-weight: bold;
+        color: $neutralColor3;
+        margin-bottom: 5px;
+      }
+
+      .author-status {
+        color: $primaryColor2;
+      }
+    }
+
+    .quote-content {
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 22px;
+      letter-spacing: -0.232143px;
+      color: $neutralColor3;
+    }
   }
 }
 </style>

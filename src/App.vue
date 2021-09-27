@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <nav-bar></nav-bar>
     <div class="main-wrapper">
       <router-view />
     </div>
@@ -20,13 +19,12 @@
   </div>
 </template>
 <script>
-import NavBar from '@/components/NavBar'
 import NewContentAvailableToastr from '@/components/NewContentAvailableToastr'
 import AppleAddToHomeScreenModal from '@/components/AppleAddToHomeScreenModal'
 import { mapState, mapActions, mapGetters } from 'vuex'
 
 export default {
-  components: { NavBar, NewContentAvailableToastr, AppleAddToHomeScreenModal },
+  components: { NewContentAvailableToastr, AppleAddToHomeScreenModal },
   computed: {
     ...mapGetters('app', ['newContentAvailable']),
     ...mapState('app', ['showAddToHomeScreenModalForApple', 'refreshingApp'])
@@ -39,12 +37,31 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/theme/variables.scss';
+
+html,
+body,
+main,
+#app {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
 
   a {
     font-weight: 500;
     text-decoration: none;
+  }
+
+  p,
+  h1 {
+    margin: 0;
+    font-family: $textFont;
   }
 
   #app {
@@ -60,30 +77,26 @@ body {
       bottom: 10px;
       right: 10px;
     }
-
-    .apple-add-to-home-screen-modal {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      top: 0;
-      left: 0;
-      height: fit-content;
-      width: fit-content;
-      margin: auto;
-      z-index: 1000;
-    }
-
     .main-wrapper {
-      margin-top: 3.6rem;
-      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100%;
+      background: url('./assets/img/bg-pattern-top-desktop.svg') top left no-repeat,
+        url('./assets/img/bg-pattern-bottom-desktop.svg') bottom right no-repeat
+          $neutralColor3;
+
+      @media (max-width: 768px) {
+
+        background: url('./assets/img/bg-pattern-top-mobile.svg') top left no-repeat,
+        url('./assets/img/bg-pattern-bottom-mobile.svg') bottom right no-repeat
+        $neutralColor3;
+      }
 
       .page-wrapper {
-        width: 60%;
+        width: 100%;
+        max-width: 1440px;
         margin: auto;
-
-        @media screen and (max-width: 1000px) {
-          width: 100%;
-        }
       }
     }
   }
